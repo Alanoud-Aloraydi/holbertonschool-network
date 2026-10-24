@@ -1,0 +1,45 @@
+﻿BLOG_URL_HERE
+
+# What happens when you type google.com in your browser and press Enter
+
+When you type `https://www.google.com` in your browser and press Enter, many systems work together in a few hundred milliseconds. This post follows the request from the browser to the database and back.
+
+## 1. DNS request
+
+The browser first checks its own cache, then the operating system cache. If the name is not cached, the query goes to a recursive DNS resolver, usually the one provided by your network or a public resolver such as 8.8.8.8. The resolver asks a root server, then the `.com` top-level domain server, then the authoritative name server for `google.com`. The authoritative server returns the IP address for `www.google.com`. The resolver caches the answer for the record's TTL, so later requests are faster.
+
+## 2. TCP/IP
+
+The browser needs a connection to that IP address. It opens a TCP connection with a three-way handshake: SYN, SYN-ACK and ACK. The IP layer routes each packet across networks, hop by hop, until it reaches the server. For HTTPS, the connection uses port 443.
+
+## 3. Firewall
+
+Before the packets reach the server, they pass through firewalls. A firewall checks each packet against rules. It allows traffic on port 443 and blocks everything else. Stateful firewalls also track open connections, so they allow the replies to the requests that were sent out.
+
+## 4. HTTPS/SSL
+
+Once the TCP connection is open, the browser and the server perform a TLS handshake. The browser sends a ClientHello. The server sends its certificate, which contains its public key and is signed by a trusted certificate authority. The browser checks the certificate chain and the domain name. Then both sides agree on session keys. From this point, all HTTP data is encrypted with those keys.
+
+## 5. Load balancer
+
+Google serves huge traffic, so the request does not go straight to one machine. A load balancer receives the connection and forwards it to a backend web server. It chooses the server with an algorithm such as round robin or least connections. Depending on the design, the load balancer can also terminate TLS.
+
+## 6. Web server
+
+The browser sends an HTTP request, such as `GET /` with the header `Host: www.google.com`. The web server, such as Nginx, receives it. It serves static files directly and forwards dynamic requests to the application server.
+
+## 7. Application server
+
+The application server runs the code that builds the response. For a search page, the code reads the query, decides what to show and prepares the data for the page.
+
+## 8. Database
+
+When the application needs stored data, it sends a query to the database. The database returns the rows, and the application server uses them to build the HTML.
+
+## The response
+
+The response travels back along the same path: the application server to the web server, through the load balancer and the firewall, and encrypted back to the browser. The browser parses the HTML, requests CSS, JavaScript and images, and renders the page.
+
+## Conclusion
+
+Typing a URL starts a chain of DNS, network routing, security, load balancing, web, application and database work. Each layer has one job, and together they deliver the page.

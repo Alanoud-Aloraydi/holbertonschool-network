@@ -1,0 +1,26 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1090 200" font-family="Arial" font-size="14">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+  </defs>
+  <rect x="10" y="70" width="130" height="60" rx="8" fill="#e8f0fe" stroke="#333"/><text x="75" y="105" text-anchor="middle">Browser</text>
+  <rect x="165" y="70" width="130" height="60" rx="8" fill="#e8f0fe" stroke="#333"/><text x="230" y="105" text-anchor="middle">DNS resolver</text>
+  <rect x="320" y="70" width="130" height="60" rx="8" fill="#fde8e8" stroke="#333"/><text x="385" y="105" text-anchor="middle">Firewall</text>
+  <rect x="475" y="70" width="130" height="60" rx="8" fill="#e8f0fe" stroke="#333"/><text x="540" y="105" text-anchor="middle">Load balancer</text>
+  <rect x="630" y="70" width="130" height="60" rx="8" fill="#e8f0fe" stroke="#333"/><text x="695" y="105" text-anchor="middle">Web server</text>
+  <rect x="785" y="70" width="130" height="60" rx="8" fill="#e8f0fe" stroke="#333"/><text x="850" y="105" text-anchor="middle">App server</text>
+  <rect x="940" y="70" width="130" height="60" rx="8" fill="#e8f0fe" stroke="#333"/><text x="1005" y="105" text-anchor="middle">Database</text>
+  <line x1="140" y1="100" x2="165" y2="100" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="295" y1="100" x2="320" y2="100" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="450" y1="100" x2="475" y2="100" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="605" y1="100" x2="630" y2="100" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="760" y1="100" x2="785" y2="100" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="915" y1="100" x2="940" y2="100" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+  <text x="75" y="160" text-anchor="middle">1. Type URL</text>
+  <text x="230" y="160" text-anchor="middle">2. DNS: IP lookup</text>
+  <text x="385" y="160" text-anchor="middle">3. Allow port 443</text>
+  <text x="540" y="160" text-anchor="middle">4. TLS, pick backend</text>
+  <text x="695" y="160" text-anchor="middle">5. Static or forward</text>
+  <text x="850" y="160" text-anchor="middle">6. Build page</text>
+  <text x="1005" y="160" text-anchor="middle">7. Query data</text>
+  <text x="545" y="190" text-anchor="middle">The response returns along the same path, encrypted with HTTPS.</text>
+</svg>
